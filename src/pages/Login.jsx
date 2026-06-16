@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { useNavigate } from "react-router-dom";
 import "./Login.css";
+
 function Login() {
   const navigate = useNavigate();
 
@@ -24,52 +25,94 @@ function Login() {
       navigate("/courses");
     } catch (err) {
       console.error(err);
-      alert("Invalid Email or Password");
+      alert("Login Failed");
     }
   };
 
   return (
-    <div className="login-container">
+    <div className="login-page">
+
+      <div className="login-left">
+        <div className="login-badge">
+          🎓 Welcome Back
+        </div>
+
+        <h1>
+          Continue Your
+          <span> Learning Journey</span>
+        </h1>
+
+        <p>
+          Access your enrolled courses,
+          track progress, and complete
+          lessons from your dashboard.
+        </p>
+
+        <div className="login-stats">
+          <div>
+            <h3>180+</h3>
+            <span>Courses</span>
+          </div>
+
+          <div>
+            <h3>2400+</h3>
+            <span>Students</span>
+          </div>
+
+          <div>
+            <h3>94%</h3>
+            <span>Completion</span>
+          </div>
+        </div>
+      </div>
+
       <div className="login-card">
-        <h1>Course Tracker</h1>
-        <p className="subtitle">
-          Track your learning journey
+
+        <h2>Login</h2>
+
+        <p>
+          Sign in to continue learning
         </p>
 
         <form onSubmit={handleLogin}>
-          <div className="form-group">
-            <label>Email</label>
 
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
-              required
-            />
-          </div>
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+          />
 
-          <div className="form-group">
-            <label>Password</label>
-
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
-              required
-            />
-          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+          />
 
           <button type="submit">
-            Login
+            Sign In
           </button>
+
         </form>
+
+        <div className="divider">
+          OR
+        </div>
+
+        <Link
+          to="/signup"
+          className="signup-link"
+        >
+          Create New Account
+        </Link>
+
       </div>
+
     </div>
   );
 }

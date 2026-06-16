@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import "./Signup.css";
 
@@ -39,55 +39,72 @@ function Signup() {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-page">
+
+      <div className="signup-left">
+
+        <div className="signup-badge">
+          🚀 Join CourseTrack
+        </div>
+
+        <h1>
+          Start Building
+          <span> Your Skills</span>
+        </h1>
+
+        <p>
+          Create your account and access
+          hundreds of courses designed
+          to accelerate your career.
+        </p>
+
+        <div className="signup-features">
+
+          <div>✅ Track Progress</div>
+
+          <div>✅ Enroll in Courses</div>
+
+          <div>✅ Earn Certificates</div>
+
+          <div>✅ Build Your Portfolio</div>
+
+        </div>
+
+      </div>
+
       <div className="signup-card">
 
-        <h1>CourseTracker</h1>
+        <h2>Create Account</h2>
 
-        <p className="signup-subtitle">
-          Create your account and start learning
+        <p>
+          Start learning for free
         </p>
 
         <form onSubmit={handleSignup}>
 
-          <div className="form-group">
-            <label>Full Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+          />
 
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-          <div className="form-group">
-            <label>Email</label>
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Password</label>
-
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+          />
 
           <button type="submit">
             Create Account
@@ -95,15 +112,20 @@ function Signup() {
 
         </form>
 
-        <p className="login-link">
-          Already have an account?
+        <div className="divider">
+          OR
+        </div>
 
-          <Link to="/login">
-            Login
-          </Link>
-        </p>
+        <Link
+          className="login-link"
+          to="/login"
+        >
+          Already have an account?
+          Login
+        </Link>
 
       </div>
+
     </div>
   );
 }
