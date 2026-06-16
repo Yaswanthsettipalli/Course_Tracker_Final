@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 function Login() {
   const navigate = useNavigate();
 
@@ -22,31 +22,55 @@ function Login() {
       alert("Login Successful");
 
       navigate("/courses");
-
     } catch (err) {
       console.error(err);
-      alert("Login Failed");
+      alert("Invalid Email or Password");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+    <div className="login-container">
+      <div className="login-card">
+        <h1>Course Tracker</h1>
+        <p className="subtitle">
+          Track your learning journey
+        </p>
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label>Email</label>
 
-      <button type="submit">Login</button>
-    </form>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+              required
+            />
+          </div>
+
+          <button type="submit">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
