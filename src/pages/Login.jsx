@@ -24,9 +24,14 @@ function Login() {
 
       navigate("/courses");
     } catch (err) {
-      console.error(err);
-      alert("Login Failed");
-    }
+  console.error(err);
+
+  alert(
+    err?.response?.data?.message ||
+    err?.message ||
+    "Login Failed"
+  );
+}
   };
 
   return (
