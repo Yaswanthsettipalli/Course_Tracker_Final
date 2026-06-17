@@ -1,8 +1,42 @@
 const express = require("express");
 const router = express.Router();
 
-const { getCourses } = require("../controllers/courseController");
+const authMiddleware =
+require("../middleware/authMiddleware");
 
-router.get("/", getCourses);
+const {
+  getCourses,
+  getCourseById,
+  updateCourse
+} =
+require("../controllers/courseController");
+
+/* =========================
+   GET ALL COURSES
+========================= */
+
+router.get(
+  "/",
+  getCourses
+);
+
+/* =========================
+   GET COURSE BY ID
+========================= */
+
+router.get(
+  "/:id",
+  getCourseById
+);
+
+/* =========================
+   UPDATE COURSE
+========================= */
+
+router.put(
+  "/update-course/:id",
+  authMiddleware,
+  updateCourse
+);
 
 module.exports = router;

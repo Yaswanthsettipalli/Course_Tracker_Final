@@ -1,3 +1,4 @@
+const lessonRoutes = require("./routes/lessonRoutes");
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 
@@ -10,13 +11,56 @@ const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 const enrollmentRoutes = require("./routes/enrollmentRoutes");
+const courseCreatorRoutes =
+require(
+"./routes/courseCreatorRoutes"
+);
+const manageCourseRoutes =
+require(
+"./routes/manageCourseRoutes"
+);
+const updateCourseRoutes =
+require(
+"./routes/updateCourseRoutes"
+)
+const dashboardRoutes =
+require(
+"./routes/dashboardRoutes"
+);
+const progressRoutes =
+require(
+"./routes/progressRoutes"
+);
 
 console.log("server.js started");
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
-
+app.use(
+  "/api/lessons",
+  lessonRoutes
+);
+app.use(
+  "/api/progress",
+  progressRoutes
+);
+app.use(
+  "/api/dashboard",
+  dashboardRoutes
+);
+app.use(
+  "/api/manage-courses",
+  manageCourseRoutes
+);
+app.use(
+  "/api/update-course",
+  updateCourseRoutes
+);
+app.use(
+  "/api/create-course",
+  courseCreatorRoutes
+);
 app.get("/", (req, res) => {
   res.send("Course Tracker API Running");
 });

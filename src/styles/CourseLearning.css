@@ -1,0 +1,219 @@
+.learning-page{
+  min-height:100vh;
+
+  background:#0A0F1E;
+
+  color:white;
+
+  display:flex;
+}
+
+/* SIDEBAR */
+
+.learning-sidebar{
+  width:320px;
+
+  background:#111827;
+
+  padding:30px;
+
+  border-right:
+  1px solid rgba(255,255,255,.08);
+}
+
+.learning-sidebar h2{
+  margin-bottom:25px;
+}
+
+.progress-ring{
+  text-align:center;
+
+  margin-bottom:35px;
+}
+
+.progress-circle{
+  width:120px;
+  height:120px;
+
+  border-radius:50%;
+
+  border:10px solid #00C896;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  margin:auto;
+
+  font-size:1.5rem;
+  font-weight:bold;
+}
+
+.lesson-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.lesson-item{
+  background:#1e293b;
+
+  padding:12px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.lesson-item:hover{
+  background:#00C896;
+  color:black;
+}
+
+/* CONTENT */
+
+.lesson-content{
+  flex:1;
+
+  padding:40px;
+}
+
+.lesson-overview{
+  background:#111827;
+
+  padding:35px;
+
+  border-radius:20px;
+}
+
+.lesson-overview h1{
+  margin-bottom:20px;
+}
+
+.lesson-overview h3{
+  margin-bottom:20px;
+}
+
+.lesson-overview p{
+  margin-bottom:20px;
+
+  color:#9CA3AF;
+}
+
+.topics{
+  margin-top:20px;
+}
+
+.topics ul{
+  margin-top:15px;
+}
+
+.topics li{
+  margin-bottom:10px;
+}
+
+.start-btn{
+  margin-top:25px;
+
+  background:#00C896;
+
+  border:none;
+
+  padding:14px 24px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+
+/* VIDEO */
+
+.video-section{
+  background:#111827;
+
+  padding:30px;
+
+  border-radius:20px;
+}
+
+.video-section iframe{
+  width:100%;
+
+  height:600px;
+
+  border:none;
+
+  border-radius:15px;
+
+  margin-top:20px;
+}
+
+.lesson-actions{
+  margin-top:20px;
+
+  display:flex;
+  gap:15px;
+}
+
+.lesson-actions button{
+  background:#00C896;
+
+  border:none;
+
+  padding:12px 20px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+.active-lesson{
+  background:#00C896;
+  color:black;
+}
+
+.resources{
+  margin-top:25px;
+}
+
+.resource-card{
+  background:#1e293b;
+
+  padding:12px;
+
+  border-radius:10px;
+
+  margin-top:10px;
+}
+.progress-circle{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin:auto;
+}
+
+.inner-circle{
+  width:105px;
+  height:105px;
+
+  background:#0F172A;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+}

@@ -1,0 +1,107 @@
+.update-course-page{
+  min-height:100vh;
+  background:#0A0F1E;
+  color:white;
+  padding:40px;
+}
+
+.update-course-container{
+  max-width:1000px;
+  margin:auto;
+}
+
+.update-course-title{
+  font-size:2.2rem;
+  margin-bottom:30px;
+  color:#00C896;
+}
+
+.course-form-card,
+.lesson-card{
+  background:#111827;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:25px;
+}
+
+.course-form-card input,
+.course-form-card textarea,
+.course-form-card select,
+.lesson-card input,
+.lesson-card textarea{
+
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  margin-bottom:15px;
+
+  background:#1E293B;
+  border:1px solid #334155;
+
+  border-radius:10px;
+
+  color:white;
+
+  outline:none;
+}
+
+.course-form-card input:focus,
+.course-form-card textarea:focus,
+.lesson-card input:focus,
+.lesson-card textarea:focus{
+
+  border-color:#00C896;
+  box-shadow:
+  0 0 0 3px rgba(0,200,150,.15);
+}
+
+.lesson-card h3{
+  color:#00C896;
+  margin-bottom:20px;
+}
+
+.btn-group{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.add-btn{
+  background:#3B82F6;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.save-btn{
+  background:#00C896;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.delete-btn{
+  background:#EF4444;
+  color:white;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.add-btn:hover,
+.save-btn:hover,
+.delete-btn:hover{
+  transform:translateY(-2px);
+}
+
+.section-heading{
+  margin:25px 0;
+  color:white;
+}

@@ -1,11 +1,34 @@
 const express = require("express");
+
 const router = express.Router();
 
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware =
+require("../middleware/authMiddleware");
+
 const {
   enrollCourse,
-} = require("../controllers/enrollmentController");
+  getMyEnrollments
+} =
+require("../controllers/enrollmentController");
 
-router.post("/", authMiddleware, enrollCourse);
+/* =========================
+   ENROLL COURSE
+========================= */
+
+router.post(
+  "/",
+  authMiddleware,
+  enrollCourse
+);
+
+/* =========================
+   GET MY ENROLLED COURSES
+========================= */
+
+router.get(
+  "/my-courses",
+  authMiddleware,
+  getMyEnrollments
+);
 
 module.exports = router;

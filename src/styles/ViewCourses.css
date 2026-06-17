@@ -1,0 +1,55 @@
+.view-courses-page{
+  min-height:100vh;
+  background:#0A0F1E;
+  color:white;
+  padding:40px;
+}
+
+.courses-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+  gap:25px;
+}
+
+.course-box{
+  background:#111827;
+  padding:25px;
+  border-radius:15px;
+}
+
+.course-actions{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+}
+
+.course-actions button{
+  background:#00C896;
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.open-btn{
+  background:#00C896;
+  color:white;
+}
+
+.edit-btn{
+  background:#3B82F6;
+  color:white;
+}
+
+.delete-btn{
+  background:#EF4444;
+  color:white;
+}
+
+.course-actions button{
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
