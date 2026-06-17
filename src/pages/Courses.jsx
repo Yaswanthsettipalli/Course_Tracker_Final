@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Footer.jsx";
 import "../styles/Courses.css";
 
 function Courses() {
