@@ -73,13 +73,11 @@ const register = async (req, res) => {
 /* =========================
    LOGIN
 ========================= */
-
 const login = (req, res) => {
 
-  const {
-    email,
-    password
-  } = req.body;
+  console.log("Login API called");
+
+  const { email, password } = req.body;
 
   db.query(
     `
@@ -90,37 +88,36 @@ const login = (req, res) => {
     [email],
     async (err, results) => {
 
-      if (err) {
+      console.log("DB Error:", err);
+      console.log("Results:", results);
 
+      if (err) {
+        console.error(err);
         return res.status(500).json({
           message: "Database Error"
         });
-
       }
 
       if (results.length === 0) {
-
         return res.status(404).json({
           message: "User not found"
         });
-
       }
 
       const user = results[0];
 
-      const isMatch =
-        await bcrypt.compare(
-          password,
-          user.password
-        );
+      console.log("User:", user);
+      console.log("JWT_SECRET:", process.env.JWT_SECRET);
+
+      const isMatch = await bcrypt.compare(
+        password,
+        user.password
+      );
 
       if (!isMatch) {
-
         return res.status(401).json({
-          message:
-            "Invalid credentials"
+          message: "Invalid credentials"
         });
-
       }
 
       const token = jwt.sign(
@@ -134,19 +131,9 @@ const login = (req, res) => {
         }
       );
 
-      res.json({
-        token,
-        user: {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          role: user.role
-        }
-      });
-
+      res.json({ token });
     }
   );
-
 };
 
 /* =========================
