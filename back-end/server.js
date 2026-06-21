@@ -34,7 +34,15 @@ require(
 
 console.log("server.js started");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://course-tracker-final-5w23-git-main-yaswanths-projects-e220f093.vercel.app"
+    ],
+    credentials: true
+  })
+);
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use(
