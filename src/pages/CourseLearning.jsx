@@ -130,9 +130,9 @@ function CourseLearning() {
 
       <div className="learning-sidebar">
 
-        <h2>
-          React for Beginners
-        </h2>
+       <h2>
+  {selectedLesson?.title || "Course"}
+</h2>
 
         <div className="progress-ring">
 
