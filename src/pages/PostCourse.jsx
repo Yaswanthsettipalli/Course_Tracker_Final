@@ -32,7 +32,6 @@ function PostCourse() {
   const addLesson = () => {
 
   setLessons([
-  ...lessons,
   {
     title: "",
     video_url: "",
