@@ -9,6 +9,7 @@ import PostCourse from "./pages/PostCourse";
 import ViewCourses from "./pages/ViewCourses";
 import UpdateCourse from "./pages/UpdateCourse";
 import Settings from "./pages/Settings";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
   element={<ViewCourses />}
 />
         <Route path="/signup" element={<Signup />} />
+         <Route
+  path="/forgot-password"
+  element={<ForgotPassword />}
+/>
 
         {/* User Pages */}
         <Route path="/dashboard" element={<Dashboard />} />

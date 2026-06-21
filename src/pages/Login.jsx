@@ -4,47 +4,74 @@ import api from "../services/api";
 import "./Login.css";
 
 function Login() {
+
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] =
+    useState("");
 
-  const handleLogin = async (e) => {
+  const [password, setPassword] =
+    useState("");
+
+  const handleLogin =
+    async (e) => {
+
     e.preventDefault();
 
     try {
-      const res = await api.post("/auth/login", {
-        email,
-        password,
-      });
 
-      localStorage.setItem("token", res.data.token);
+      const res =
+        await api.post(
+          "/auth/login",
+          {
+            email,
+            password,
+          }
+        );
 
-      alert("Login Successful");
+      localStorage.setItem(
+        "token",
+        res.data.token
+      );
 
-      navigate("/courses");
+      alert(
+        "Login Successful"
+      );
+
+      navigate(
+        "/courses"
+      );
+
     } catch (err) {
-  console.error(err);
 
-  alert(
-    err?.response?.data?.message ||
-    err?.message ||
-    "Login Failed"
-  );
-}
+      console.error(err);
+
+      alert(
+        err?.response?.data?.message ||
+        err?.message ||
+        "Login Failed"
+      );
+
+    }
+
   };
 
   return (
+
     <div className="login-page">
 
       <div className="login-left">
+
         <div className="login-badge">
           🎓 Welcome Back
         </div>
 
         <h1>
           Continue Your
-          <span> Learning Journey</span>
+          <span>
+            {" "}
+            Learning Journey
+          </span>
         </h1>
 
         <p>
@@ -54,39 +81,56 @@ function Login() {
         </p>
 
         <div className="login-stats">
+
           <div>
             <h3>180+</h3>
-            <span>Courses</span>
+            <span>
+              Courses
+            </span>
           </div>
 
           <div>
             <h3>2400+</h3>
-            <span>Students</span>
+            <span>
+              Students
+            </span>
           </div>
 
           <div>
             <h3>94%</h3>
-            <span>Completion</span>
+            <span>
+              Completion
+            </span>
           </div>
+
         </div>
+
       </div>
 
       <div className="login-card">
 
-        <h2>Login</h2>
+        <h2>
+          Login
+        </h2>
 
         <p>
           Sign in to continue learning
         </p>
 
-        <form onSubmit={handleLogin}>
+        <form
+          onSubmit={
+            handleLogin
+          }
+        >
 
           <input
             type="email"
             placeholder="Email Address"
             value={email}
             onChange={(e) =>
-              setEmail(e.target.value)
+              setEmail(
+                e.target.value
+              )
             }
           />
 
@@ -95,11 +139,40 @@ function Login() {
             placeholder="Password"
             value={password}
             onChange={(e) =>
-              setPassword(e.target.value)
+              setPassword(
+                e.target.value
+              )
             }
           />
 
-          <button type="submit">
+          <div
+            style={{
+              textAlign:
+                "right",
+              marginBottom:
+                "15px",
+            }}
+          >
+
+            <Link
+              to="/forgot-password"
+              style={{
+                color:
+                  "#00C896",
+                textDecoration:
+                  "none",
+                fontSize:
+                  "14px",
+              }}
+            >
+              Forgot Password?
+            </Link>
+
+          </div>
+
+          <button
+            type="submit"
+          >
             Sign In
           </button>
 
@@ -119,7 +192,9 @@ function Login() {
       </div>
 
     </div>
+
   );
+
 }
 
 export default Login;

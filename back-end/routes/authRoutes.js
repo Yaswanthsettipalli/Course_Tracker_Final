@@ -12,6 +12,23 @@ const {
   changePassword
 } =
 require("../controllers/authController");
+const {
+  register,
+  login,
+  getProfile,
+  updateProfile,
+  changePassword,
+  forgotPassword
+} =
+require("../controllers/authController");
+router.post(
+  "/forgot-password",
+  forgotPassword
+);
+router.post(
+  "/login",
+  login
+);
 
 router.post(
   "/register",
@@ -40,5 +57,6 @@ router.put(
   authMiddleware,
   changePassword
 );
+
 
 module.exports = router;

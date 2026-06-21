@@ -5,7 +5,81 @@ const jwt = require("jsonwebtoken");
 /* =========================
    REGISTER
 ========================= */
+const forgotPassword =
+async (req, res) => {
 
+  const {
+    email,
+    newPassword
+  } = req.body;
+
+  if (
+    !email ||
+    !newPassword
+  ) {
+
+    return res
+      .status(400)
+      .json({
+        message:
+          "Email and Password required"
+      });
+
+  }
+
+  const hashedPassword =
+    await bcrypt.hash(
+      newPassword,
+      10
+    );
+
+  db.query(
+    `
+    UPDATE users
+    SET password = ?
+    WHERE email = ?
+    `,
+    [
+      hashedPassword,
+      email
+    ],
+    (err, result) => {
+
+      if (err) {
+
+        console.error(err);
+
+        return res
+          .status(500)
+          .json({
+            message:
+              "Database Error"
+          });
+
+      }
+
+      if (
+        result.affectedRows === 0
+      ) {
+
+        return res
+          .status(404)
+          .json({
+            message:
+              "Email not found"
+          });
+
+      }
+
+      res.json({
+        message:
+          "Password Updated Successfully"
+      });
+
+    }
+  );
+
+};
 const register = async (req, res) => {
   try {
 
@@ -390,11 +464,11 @@ const changePassword = async (req, res) => {
   );
 
 };
-
 module.exports = {
   register,
   login,
   getProfile,
   updateProfile,
-  changePassword
+  changePassword,
+  forgotPassword
 };
