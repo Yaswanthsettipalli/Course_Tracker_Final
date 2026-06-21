@@ -96,6 +96,10 @@ const createCourse = (req, res) => {
     }
   );
 };
+console.log(
+  "LESSON VALUES:",
+  lessonValues
+);
 
 module.exports = {
   createCourse
