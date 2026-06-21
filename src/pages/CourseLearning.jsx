@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import api from "../services/api";
 import "../styles/CourseLearning.css";
 
 function CourseLearning() {
+  const { courseId } = useParams();
 
   const [lessons, setLessons] =
     useState([]);
@@ -26,7 +28,9 @@ function CourseLearning() {
       try {
 
         const res =
-          await api.get("/lessons/1");
+  await api.get(
+    `/lessons/${courseId}`
+  );
 
         setLessons(res.data);
 
@@ -48,7 +52,7 @@ function CourseLearning() {
 
     fetchLessons();
 
-  }, []);
+  }, [courseId]);
 
   useEffect(() => {
 
@@ -264,27 +268,85 @@ function CourseLearning() {
 
             <div className="resources">
 
-              <h3>
-                Resources
-              </h3>
+  <h3>
+    Resources
+  </h3>
 
-              <div className="resource-card">
-                📄 Lesson Notes
-              </div>
+  {[
+    {
+      title: "📄 Lesson Notes",
+      file: selectedLesson.notes_pdf
+    },
+    {
+      title: "📄 Cheat Sheet",
+      file: selectedLesson.cheatsheet_pdf
+    },
+    {
+      title: "💻 Source Code",
+      file: selectedLesson.source_code_pdf
+    },
+    {
+      title: "📝 Assignment",
+      file: selectedLesson.assignment_pdf
+    }
+  ].map((resource, index) => (
 
-              <div className="resource-card">
-                📄 Cheat Sheet
-              </div>
+    <div
+      key={index}
+      className="resource-card"
+    >
 
-              <div className="resource-card">
-                💻 Source Code
-              </div>
+      <span>
+        {resource.title}
+      </span>
 
-              <div className="resource-card">
-                📝 Assignment
-              </div>
+      <div className="resource-actions">
 
-            </div>
+        {resource.file ? (
+
+          <>
+
+            <button
+              className="resource-btn"
+              onClick={() =>
+                window.open(
+                  resource.file,
+                  "_blank"
+                )
+              }
+            >
+              View
+            </button>
+
+            <a
+              href={resource.file}
+              download
+              className="resource-download"
+            >
+              ⬇ Download
+            </a>
+
+          </>
+
+        ) : (
+
+          <span
+            style={{
+              color: "#9CA3AF"
+            }}
+          >
+            Not Available
+          </span>
+
+        )}
+
+      </div>
+
+    </div>
+
+  ))}
+
+</div>
 
             <button
               className="start-btn"

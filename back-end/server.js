@@ -82,6 +82,10 @@ app.get(
     });
   }
 );
+app.use(
+  "/uploads",
+  express.static("uploads")
+);
 
 app.use("/api/courses", courseRoutes);
 app.use("/api/enrollments", enrollmentRoutes);

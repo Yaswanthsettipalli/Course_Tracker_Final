@@ -17,12 +17,16 @@ function PostCourse() {
     useState("Web Development");
 
   const [lessons, setLessons] = useState([
-    {
-      title: "",
-      video_url: "",
-      notes: "",
-      topics: ""
-    }
+   {
+  title: "",
+  video_url: "",
+  notes: "",
+  topics: "",
+  notes_pdf: "",
+  cheatsheet_pdf: "",
+  source_code_pdf: "",
+  assignment_pdf: ""
+}
   ]);
 
   const addLesson = () => {
@@ -186,7 +190,57 @@ function PostCourse() {
         </select>
 
       </div>
+          <input
+  type="text"
+  placeholder="Notes PDF URL"
+  value={lesson.notes_pdf}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "notes_pdf",
+      e.target.value
+    )
+  }
+/>
 
+<input
+  type="text"
+  placeholder="Cheat Sheet URL"
+  value={lesson.cheatsheet_pdf}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "cheatsheet_pdf",
+      e.target.value
+    )
+  }
+/>
+
+<input
+  type="text"
+  placeholder="Source Code URL"
+  value={lesson.source_code_pdf}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "source_code_pdf",
+      e.target.value
+    )
+  }
+/>
+
+<input
+  type="text"
+  placeholder="Assignment URL"
+  value={lesson.assignment_pdf}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "assignment_pdf",
+      e.target.value
+    )
+  }
+/>
       <h2>
         Course Lessons
       </h2>
