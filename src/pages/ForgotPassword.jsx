@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import "./ForgotPassword.css";
+import { Link } from "react-router-dom";
 
 function ForgotPassword() {
 
@@ -47,22 +49,18 @@ function ForgotPassword() {
 
   };
 
-  return (
+return (
+  <div className="forgot-page">
 
-    <div
-      style={{
-        maxWidth: "450px",
-        margin: "100px auto",
-        padding: "30px",
-        background: "#111827",
-        borderRadius: "12px",
-        color: "white"
-      }}
-    >
+    <div className="forgot-card">
 
       <h2>
-        Forgot Password
+        🔑 Forgot Password
       </h2>
+
+      <p>
+        Enter your email and create a new password
+      </p>
 
       <form onSubmit={handleReset}>
 
@@ -71,15 +69,8 @@ function ForgotPassword() {
           placeholder="Enter Email"
           value={email}
           onChange={(e) =>
-            setEmail(
-              e.target.value
-            )
+            setEmail(e.target.value)
           }
-          style={{
-            width: "100%",
-            padding: "12px",
-            marginBottom: "15px"
-          }}
         />
 
         <input
@@ -91,28 +82,28 @@ function ForgotPassword() {
               e.target.value
             )
           }
-          style={{
-            width: "100%",
-            padding: "12px",
-            marginBottom: "15px"
-          }}
         />
 
         <button
           type="submit"
-          style={{
-            width: "100%",
-            padding: "12px"
-          }}
+          className="reset-btn"
         >
           Reset Password
         </button>
 
       </form>
 
+      <Link
+        to="/login"
+        className="back-login"
+      >
+        ← Back to Login
+      </Link>
+
     </div>
 
-  );
+  </div>
+);
 
 }
 
