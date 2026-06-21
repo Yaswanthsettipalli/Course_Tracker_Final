@@ -100,6 +100,14 @@ console.log(
   "LESSON VALUES:",
   lessonValues
 );
+console.log(
+  "LESSON VALUES:",
+  JSON.stringify(
+    lessonValues,
+    null,
+    2
+  )
+);
 
 module.exports = {
   createCourse
