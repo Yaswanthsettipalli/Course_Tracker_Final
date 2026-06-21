@@ -252,3 +252,20 @@
   padding:8px 12px;
   border-radius:8px;
 }
+.lesson-resources {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.lesson-resources a {
+  text-decoration: none;
+  color: #00C896;
+  font-size: 14px;
+}
+
+.lesson-resources a:hover {
+  text-decoration: underline;
+}

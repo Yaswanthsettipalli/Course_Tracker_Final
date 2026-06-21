@@ -20,6 +20,8 @@ function CourseLearning() {
 
   const [progress, setProgress] =
     useState(0);
+    const [expandedLesson, setExpandedLesson] =
+  useState(null);
 
   useEffect(() => {
 
@@ -162,48 +164,98 @@ function CourseLearning() {
 
         </div>
 
-        <div className="lesson-list">
+       <div className="lesson-list">
 
-          {lessons.map((lesson) => (
+  {lessons.map((lesson) => (
 
-            <div
-              key={lesson.id}
-              className={`lesson-item ${
-                selectedLesson?.id ===
-                lesson.id
-                  ? "active-lesson"
-                  : ""
-              }`}
-              onClick={() => {
+    <div key={lesson.id}>
 
-                setSelectedLesson(
-                  lesson
-                );
+      <div
+        className={`lesson-item ${
+          selectedLesson?.id === lesson.id
+            ? "active-lesson"
+            : ""
+        }`}
+        onClick={() => {
 
-                setShowVideo(
-                  false
-                );
+          setSelectedLesson(lesson);
 
-              }}
+          setExpandedLesson(
+            expandedLesson === lesson.id
+              ? null
+              : lesson.id
+          );
+
+          setShowVideo(false);
+
+        }}
+      >
+
+        <span>
+          {completedLessons.includes(
+            lesson.id
+          )
+            ? "🟢"
+            : "📘"}
+        </span>
+
+        {lesson.title}
+
+      </div>
+
+      {expandedLesson === lesson.id && (
+
+        <div className="lesson-resources">
+
+          {lesson.notes_pdf && (
+            <a
+              href={lesson.notes_pdf}
+              target="_blank"
+              rel="noreferrer"
             >
+              📄 Notes
+            </a>
+          )}
 
-              <span>
+          {lesson.cheatsheet_pdf && (
+            <a
+              href={lesson.cheatsheet_pdf}
+              target="_blank"
+              rel="noreferrer"
+            >
+              📄 Cheat Sheet
+            </a>
+          )}
 
-                {completedLessons.includes(
-                  lesson.id
-                )
-                  ? "🟢"
-                  : "📘"}
+          {lesson.source_code_pdf && (
+            <a
+              href={lesson.source_code_pdf}
+              target="_blank"
+              rel="noreferrer"
+            >
+              💻 Source Code
+            </a>
+          )}
 
-              </span>
-
-              {lesson.title}
-
-            </div>
-
-          ))}
+          {lesson.assignment_pdf && (
+            <a
+              href={lesson.assignment_pdf}
+              target="_blank"
+              rel="noreferrer"
+            >
+              📝 Assignment
+            </a>
+          )}
 
         </div>
+
+      )}
+
+    </div>
+
+  ))}
+
+</div>
 
       </div>
 
