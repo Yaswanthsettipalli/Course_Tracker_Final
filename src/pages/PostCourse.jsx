@@ -72,7 +72,18 @@ function PostCourse() {
         localStorage.getItem(
           "token"
         );
-
+        console.log(
+  "Publishing Lessons:",
+  JSON.stringify(
+    lessons,
+    null,
+    2
+  )
+);
+console.log(
+  "Lessons Data:",
+  lessons
+);
       await api.post(
         "/create-course",
         {

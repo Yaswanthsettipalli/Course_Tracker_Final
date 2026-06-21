@@ -134,8 +134,8 @@ function CourseLearning() {
       <div className="learning-sidebar">
 
      <h2>
-  {selectedLesson?.course_title ||
-   "Loading Course..."}
+  {lessons[0]?.course_title ||
+   "Course"}
 </h2>
 
         <div className="progress-ring">
