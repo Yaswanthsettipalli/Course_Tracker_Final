@@ -17,6 +17,12 @@ require(
 router.post(
   "/",
   authMiddleware,
+  (req, res, next) => {
+    console.log(
+      "CREATE COURSE ROUTE HIT"
+    );
+    next();
+  },
   createCourse
 );
 
