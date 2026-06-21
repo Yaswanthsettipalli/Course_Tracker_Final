@@ -105,3 +105,15 @@
   margin:25px 0;
   color:white;
 }
+.lesson-card h4{
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#00C896;
+  font-size:16px;
+}
+
+.lesson-card input,
+.lesson-card textarea{
+  width:100%;
+  margin-bottom:12px;
+}

@@ -70,16 +70,20 @@ function UpdateCourse() {
     setLessons(updatedLessons);
   };
 
-  const addLesson = () => {
-    setLessons([
-      ...lessons,
-      {
-        title: "",
-        video_url: "",
-        content: "",
-      },
-    ]);
-  };
+ const addLesson = () => {
+  setLessons([
+    ...lessons,
+    {
+      title: "",
+      video_url: "",
+      content: "",
+      notes_pdf: "",
+      cheatsheet_pdf: "",
+      source_code_pdf: "",
+      assignment_pdf: ""
+    }
+  ]);
+};
 
   const deleteLesson = (
     index
@@ -242,6 +246,59 @@ function UpdateCourse() {
                   )
                 }
               />
+              <h4>📂 Lesson Resources</h4>
+
+<input
+  type="text"
+  placeholder="Notes PDF URL"
+  value={lesson.notes_pdf || ""}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "notes_pdf",
+      e.target.value
+    )
+  }
+/>
+
+<input
+  type="text"
+  placeholder="Cheat Sheet URL"
+  value={lesson.cheatsheet_pdf || ""}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "cheatsheet_pdf",
+      e.target.value
+    )
+  }
+/>
+
+<input
+  type="text"
+  placeholder="Source Code URL"
+  value={lesson.source_code_pdf || ""}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "source_code_pdf",
+      e.target.value
+    )
+  }
+/>
+
+<input
+  type="text"
+  placeholder="Assignment URL"
+  value={lesson.assignment_pdf || ""}
+  onChange={(e) =>
+    handleLessonChange(
+      index,
+      "assignment_pdf",
+      e.target.value
+    )
+  }
+/>
 
               <button
                 className="delete-btn"

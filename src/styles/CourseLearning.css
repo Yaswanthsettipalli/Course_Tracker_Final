@@ -269,3 +269,51 @@
 .lesson-resources a:hover {
   text-decoration: underline;
 }
+.lesson-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#1e293b;
+  padding:15px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.3s;
+  font-weight:600;
+}
+
+.lesson-item:hover{
+  transform:translateX(5px);
+}
+
+.lesson-resources{
+  background:#0f172a;
+  margin-top:5px;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:10px;
+}
+
+.lesson-resources a{
+  display:block;
+  padding:8px 0;
+  color:#00C896;
+  text-decoration:none;
+}
+
+.lesson-resources a:hover{
+  color:white;
+}
+
+.learning-sidebar{
+  overflow-y:auto;
+}
+
+.lesson-overview{
+  box-shadow:
+  0 0 20px rgba(0,200,150,.1);
+}
+
+.video-section{
+  box-shadow:
+  0 0 20px rgba(0,200,150,.1);
+}

@@ -35,6 +35,7 @@ function CourseLearning() {
   );
 
         setLessons(res.data);
+        console.log("Lessons Data:", res.data);
 
         if (res.data.length > 0) {
 
@@ -132,8 +133,9 @@ function CourseLearning() {
 
       <div className="learning-sidebar">
 
-       <h2>
-  {selectedLesson?.title || "Course"}
+     <h2>
+  {selectedLesson?.course_title ||
+   "Loading Course..."}
 </h2>
 
         <div className="progress-ring">

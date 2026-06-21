@@ -110,30 +110,38 @@
           }
 
           const insertLessonSql = `
-            INSERT INTO lessons
-            (
-              course_id,
-              title,
-              content,
-              video_url,
-              order_index
-            )
-            VALUES ?
-          `;
+  INSERT INTO lessons
+  (
+    course_id,
+    title,
+    content,
+    video_url,
+    order_index,
+    notes_pdf,
+    cheatsheet_pdf,
+    source_code_pdf,
+    assignment_pdf
+  )
+  VALUES ?
+`;
 
           const lessonValues =
-            lessons.map(
-              (
-                lesson,
-                index
-              ) => [
-                courseId,
-                lesson.title,
-                lesson.content || "",
-                lesson.video_url || "",
-                index + 1
-              ]
-            );
+  lessons.map(
+    (
+      lesson,
+      index
+    ) => [
+      courseId,
+      lesson.title,
+      lesson.content || "",
+      lesson.video_url || "",
+      index + 1,
+      lesson.notes_pdf || "",
+      lesson.cheatsheet_pdf || "",
+      lesson.source_code_pdf || "",
+      lesson.assignment_pdf || ""
+    ]
+  );
 
           db.query(
             insertLessonSql,
