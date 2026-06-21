@@ -8,6 +8,14 @@ const createCourse = (req, res) => {
     category,
     lessons
   } = req.body;
+  console.log(
+  "RECEIVED LESSONS:",
+  JSON.stringify(
+    lessons,
+    null,
+    2
+  )
+);
 
   const created_by = req.user.id;
 
@@ -71,6 +79,14 @@ const createCourse = (req, res) => {
       lesson.assignment_pdf
     ]
   );
+  console.log(
+  "LESSON VALUES:",
+  JSON.stringify(
+    lessonValues,
+    null,
+    2
+  )
+);
 
       db.query(
         lessonSql,
@@ -96,18 +112,6 @@ const createCourse = (req, res) => {
     }
   );
 };
-console.log(
-  "LESSON VALUES:",
-  lessonValues
-);
-console.log(
-  "LESSON VALUES:",
-  JSON.stringify(
-    lessonValues,
-    null,
-    2
-  )
-);
 
 module.exports = {
   createCourse
