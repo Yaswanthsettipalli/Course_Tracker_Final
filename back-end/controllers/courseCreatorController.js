@@ -41,10 +41,16 @@ const createCourse = (req, res) => {
     (err, result) => {
 
       if (err) {
-        return res
-          .status(500)
-          .json(err);
-      }
+
+  console.log(
+    "COURSE INSERT ERROR:",
+    err
+  );
+
+  return res
+    .status(500)
+    .json(err);
+}
 
       const courseId =
         result.insertId;
@@ -93,13 +99,19 @@ const createCourse = (req, res) => {
         [lessonValues],
         (lessonErr) => {
 
-          if (lessonErr) {
-            return res
-              .status(500)
-              .json(
-                lessonErr
-              );
-          }
+        if (lessonErr) {
+
+  console.log(
+    "LESSON INSERT ERROR:",
+    lessonErr
+  );
+
+  return res
+    .status(500)
+    .json(
+      lessonErr
+    );
+}
 
           res.status(201).json({
             message:
