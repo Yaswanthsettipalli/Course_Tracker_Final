@@ -8,6 +8,15 @@ const createCourse = (req, res) => {
     category,
     lessons
   } = req.body;
+  console.log(
+  "REQ BODY:",
+  JSON.stringify(req.body, null, 2)
+);
+
+console.log(
+  "LESSONS RECEIVED:",
+  JSON.stringify(lessons, null, 2)
+);
 
   const created_by = req.user.id;
 
@@ -70,7 +79,14 @@ const createCourse = (req, res) => {
           ]
         );
 
-      console.log("LESSON VALUES:", lessonValues);
+     console.log(
+  "LESSON VALUES:",
+  JSON.stringify(
+    lessonValues,
+    null,
+    2
+  )
+);
 
       db.query(
         lessonSql,
