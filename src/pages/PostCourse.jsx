@@ -29,22 +29,23 @@ function PostCourse() {
 }
   ]);
 
-  const addLesson = () => {
+ const addLesson = () => {
 
   setLessons([
-  {
-    title: "",
-    video_url: "",
-    notes: "",
-    topics: "",
-    notes_pdf: "",
-    cheatsheet_pdf: "",
-    source_code_pdf: "",
-    assignment_pdf: ""
-  }
-]);
+    ...lessons,
+    {
+      title: "",
+      video_url: "",
+      notes: "",
+      topics: "",
+      notes_pdf: "",
+      cheatsheet_pdf: "",
+      source_code_pdf: "",
+      assignment_pdf: ""
+    }
+  ]);
 
-  };
+};
 
   const handleLessonChange = (
     index,
