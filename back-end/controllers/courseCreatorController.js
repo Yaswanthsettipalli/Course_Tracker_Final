@@ -9,6 +9,7 @@ const createCourse = (req, res) => {
   const {
     title,
     description,
+    thumbnail,
     category,
     lessons
   } = req.body;
