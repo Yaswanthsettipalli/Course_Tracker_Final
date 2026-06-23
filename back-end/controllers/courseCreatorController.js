@@ -38,6 +38,17 @@ console.log(
   VALUES (?, ?, ?, ?, ?)
 `;
 
+console.log(
+  "INSERT VALUES:",
+  [
+    title,
+    description,
+    thumbnail,
+    category,
+    created_by
+  ]
+);
+
 db.query(
   courseSql,
   [
