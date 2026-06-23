@@ -84,6 +84,7 @@ console.log(
   "Lessons Data:",
   lessons
 );
+console.log("THUMBNAIL VALUE:", thumbnail);
       await api.post(
         "/create-course",
         {
