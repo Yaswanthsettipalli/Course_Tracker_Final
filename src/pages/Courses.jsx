@@ -462,9 +462,12 @@ navigate(
               >
 
                 <img
-                  src={`https://picsum.photos/500/300?random=${course.id}`}
-                  alt={course.title}
-                />
+  src={
+    course.thumbnail ||
+    `https://picsum.photos/500/300?random=${course.id}`
+  }
+  alt={course.title}
+/>
 
                 <div className="course-content">
 
