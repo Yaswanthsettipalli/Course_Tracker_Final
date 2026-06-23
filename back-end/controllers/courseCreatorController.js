@@ -13,6 +13,7 @@ const createCourse = (req, res) => {
     category,
     lessons
   } = req.body;
+  console.log("THUMBNAIL RECEIVED:", thumbnail);
   console.log(
   "REQ BODY:",
   JSON.stringify(req.body, null, 2)
