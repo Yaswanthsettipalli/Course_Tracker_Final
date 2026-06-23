@@ -1,6 +1,8 @@
 const db = require("../config/db");
-console.log("COURSE DB:", db);
+
+console.log("COURSE DB TYPE:", typeof db);
 console.log("COURSE DB QUERY:", typeof db.query);
+console.log("COURSE DB KEYS:", Object.keys(db));
 
 const createCourse = (req, res) => {
 

@@ -1,8 +1,10 @@
 const db = require("../config/db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-console.log("AUTH DB:", db);
+
+console.log("AUTH DB TYPE:", typeof db);
 console.log("AUTH DB QUERY:", typeof db.query);
+console.log("AUTH DB KEYS:", Object.keys(db));
 /* =========================
    REGISTER
 ========================= */
