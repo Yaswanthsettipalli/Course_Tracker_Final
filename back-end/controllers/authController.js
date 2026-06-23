@@ -1,10 +1,11 @@
 const db = require("../config/db");
+
+console.log("DB IMPORT =", db);
+console.log("DB PATH =", require.resolve("../config/db"));
+console.log("DB QUERY =", typeof db.query);
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
-console.log("AUTH DB TYPE:", typeof db);
-console.log("AUTH DB QUERY:", typeof db.query);
-console.log("AUTH DB KEYS:", Object.keys(db));
 /* =========================
    REGISTER
 ========================= */
