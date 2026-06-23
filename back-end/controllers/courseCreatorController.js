@@ -24,25 +24,27 @@ console.log(
 
   const created_by = req.user.id;
 
-  const courseSql = `
-    INSERT INTO courses
-    (
-      title,
-      description,
-      category,
-      created_by
-    )
-    VALUES (?, ?, ?, ?)
-  `;
+ const courseSql = `
+  INSERT INTO courses
+  (
+    title,
+    description,
+    thumbnail,
+    category,
+    created_by
+  )
+  VALUES (?, ?, ?, ?, ?)
+`;
 
-  db.query(
-    courseSql,
-    [
-      title,
-      description,
-      category,
-      created_by
-    ],
+db.query(
+  courseSql,
+  [
+    title,
+    description,
+    thumbnail,
+    category,
+    created_by
+  ],
     (err, result) => {
 
       if (err) {
